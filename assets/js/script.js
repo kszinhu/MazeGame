@@ -102,7 +102,17 @@ function leDoTeclado(evento) {
       if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
           e.preventDefault();
       }
-  }, false);
+  });
+  window.onmousedown = function() {
+
+    console.log("BOM DIA");
+}
+
+// atribuindo diretamente a função anônima
+ window.onmouseup = function() {
+
+    console.log("BOA NOITE");
+}
 
     if(evento.keyCode == cima) {
 
