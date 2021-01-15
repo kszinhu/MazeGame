@@ -12,7 +12,8 @@ var esquerda = 37
 var cima = 38
 var direita = 39
 var baixo = 40
-var taxa = 10;
+var taxa = 10
+var Enter = 13;
 
 function desenhaCirculo(x, y, raio) {
 
@@ -91,28 +92,41 @@ function atualizaTela() {
     desenhaTriangulo(x, y);
 }
 
-
+var big = false;
 
 setInterval(atualizaTela, 20);
 
 function leDoTeclado(evento) {
   
-    window.addEventListener("keydown", function(e) {
-      // space and arrow keys
-      if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-          e.preventDefault();
+  window.addEventListener("keydown", function(e) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+    window.onkeydown = function(e) {
+      if(e.keyCode == 13 && big == false) {
+        // console.log("BOM DIA!"); COLOCA O SCRIPT DE DIMINUIR O TATU AQUI!
+        big = true;
       }
+      else {
+        // console.log("BOA NOITE!"); COLOCA O SCRIPT DE AUMENTAR O TATU AQUI!
+        big = false
+      }
+    }
   });
-  window.onmousedown = function() {
 
-    console.log("BOM DIA");
-}
+  
 
-// atribuindo diretamente a função anônima
- window.onmouseup = function() {
+//   window.onmousedown = function() {
 
-    console.log("BOA NOITE");
-}
+//     console.log("BOM DIA");
+// }
+
+// // atribuindo diretamente a função anônima
+//  window.onmouseup = function() {
+
+//     console.log("BOA NOITE");
+// }
 
     if(evento.keyCode == cima) {
 
