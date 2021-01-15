@@ -69,6 +69,16 @@ function desenhaCirculo5(x, y, raio) {
     pincel.fill();
 }
 
+function desenhaTriangulo(x,y){
+
+pincel.beginPath();
+pincel.moveTo(75,50);
+pincel.lineTo(100,75);
+pincel.lineTo(100,25);
+pincel.fill();
+}
+
+
 
 function atualizaTela() {
 
@@ -78,6 +88,7 @@ function atualizaTela() {
     desenhaCirculo(x, y, 10);
     desenhaCirculo4(x, y, 10);
     desenhaCirculo5(x, y, 10);
+    desenhaTriangulo(x, y);
 }
 
 
