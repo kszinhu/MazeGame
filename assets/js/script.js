@@ -25,7 +25,7 @@ function desenhaCirculo(x, y, raio) {
 
 function desenhaCirculo2(x, y, raio) {
 
-  pincel.fillStyle = 'grey';
+  pincel.fillStyle = 'brown';
     pincel.beginPath();
     pincel.arc(x+20, y, raio, 0, 2 * Math.PI);
     pincel.fill();
@@ -33,7 +33,7 @@ function desenhaCirculo2(x, y, raio) {
 
 function desenhaCirculo3(x, y, raio) {
 
-  pincel.fillStyle = 'grey';
+  pincel.fillStyle = 'brown';
     pincel.beginPath();
     pincel.arc(x+20, y+40, raio, 0, 2 * Math.PI);
     pincel.fill();
