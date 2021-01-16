@@ -1,18 +1,22 @@
 var tela = document.querySelector('canvas');
 var pincel = tela.getContext('2d');
 pincel.fillStyle = 'lightgray';
-pincel.fillRect(0, 0, 600, 400);
+pincel.fillRect(0, 0,1175, 500);
 
-var x = 20;
-var y = 20;
+var x = 25;
+var y = 25;
+var n = 50;
+var m = 75;
+var z = 50;
+var y = 100;
 
 // códigos do teclado
 
-var esquerda = 37
-var cima = 38
-var direita = 39
-var baixo = 40
-var taxa = 10
+var esquerda = 37;
+var cima = 38;
+var direita = 39;
+var baixo = 40;
+var taxa = 10;
 var Enter = 13;
 
 function desenhaCirculo(x, y, raio) {
@@ -43,15 +47,15 @@ function desenhaCirculo3(x, y, raio) {
 
 function desenhaRetangulo(x, y) {
 
-  pincel.fillStyle = 'lightgray';
+  pincel.fillStyle = 'black';
   pincel.beginPath();
-  pincel.fillRect(0, 0, 600, 400);
+  pincel.fillRect( 0, 0, 1175, 500);
  
 }
 
 function limpaTela() {
 
-    pincel.clearRect(0, 0, 600, 400);
+    pincel.clearRect(0, 0, 1175, 500);
 }
 
 function desenhaCirculo4(x, y, raio) {
@@ -70,12 +74,12 @@ function desenhaCirculo5(x, y, raio) {
     pincel.fill();
 }
 
-function desenhaTriangulo(x,y){
+function desenhaTriangulo(x,y,z){
 
 pincel.beginPath();
-pincel.moveTo(75,50);
-pincel.lineTo(100,75);
-pincel.lineTo(100,25);
+pincel.moveTo(x+50,y+25);
+pincel.lineTo(x+75,y+50);
+pincel.lineTo(x+75,y);
 pincel.fill();
 }
 
@@ -89,16 +93,16 @@ function atualizaTela() {
     desenhaCirculo(x, y, 10);
     desenhaCirculo4(x, y, 10);
     desenhaCirculo5(x, y, 10);
-    desenhaTriangulo(x, y);
+    desenhaTriangulo(x,y,z);
 }
 
 var big = false;
 
 setInterval(atualizaTela, 20);
 
-function leDoTeclado(evento) {
+function leDoTeclado(evento){
   
-  window.addEventListener("keydown", function(e) {
+  window.addEventListener("keydown", function(e){
     // space and arrow keys
     if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
         e.preventDefault();
