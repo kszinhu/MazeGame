@@ -37,7 +37,7 @@ outras áreas.
 
 ## 👨🏽‍💻 - Criadores
 
-- **Cassiano Henrique Aparecido Rodrigues** - [Github](github.com/kszinhu)
-- **Gustavo Amaral Duarte Rego** - [Github](github.com/Guga-adr)
-- **Matheus Dos Santos Ribeiro Silva** - [Github](github.com/MatheusRibeiroS)
-- **João Pedro Vieira Rodrigues** - [Github](github.com/Jotinha08)
+- **Cassiano Henrique Aparecido Rodrigues** - [Github](https://github.com/kszinhu)
+- **Gustavo Amaral Duarte Rego** - [Github](https://github.com/Guga-adr)
+- **Matheus Dos Santos Ribeiro Silva** - [Github](https://github.com/MatheusRibeiroS)
+- **João Pedro Vieira Rodrigues** - [Github](https://github.com/Jotinha08)
