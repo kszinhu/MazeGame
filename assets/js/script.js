@@ -3,12 +3,17 @@ var pincel = tela.getContext("2d");
 pincel.fillStyle = "lightgray";
 pincel.fillRect(0, 0, 1175, 500);
 
+var ahhh = 1;
 var x = 25;
 var y = 25;
 var n = 50;
 var m = 75;
 var z = 50;
 var y = 100;
+var raio = 10;
+var raio2 = 30;
+
+
 
 // códigos do teclado
 
@@ -22,21 +27,21 @@ var Enter = 13;
 function desenhaCirculo(x, y, raio) {
   pincel.fillStyle = "red";
   pincel.beginPath();
-  pincel.arc(x + 21, y + 4, raio, 0, 2 * Math.PI);
+  pincel.arc((x + 21)*ahhh, (y + 4)*ahhh, raio*ahhh, 0, 2 * Math.PI);
   pincel.fill();
 }
 
 function desenhaCirculo2(x, y, raio) {
   pincel.fillStyle = "#964b00";
   pincel.beginPath();
-  pincel.arc(x + 20, y, raio, 0, 2 * Math.PI);
+  pincel.arc((x + 20)*ahhh, y*ahhh, raio*ahhh, 0, 2 * Math.PI);
   pincel.fill();
 }
 
 function desenhaCirculo3(x, y, raio) {
   pincel.fillStyle = "#964b00";
   pincel.beginPath();
-  pincel.arc(x + 20, y + 40, raio, 0, 2 * Math.PI);
+  pincel.arc((x + 20)*ahhh, (y + 40)*ahhh, raio*ahhh, 0, 2 * Math.PI);
   pincel.fill();
 }
 
@@ -53,40 +58,40 @@ function limpaTela() {
 function desenhaCirculo4(x, y, raio) {
   pincel.fillStyle = "black";
   pincel.beginPath();
-  pincel.arc(x + 7, y - 8, 2, 0, 2 * Math.PI);
+  pincel.arc((x + 7)*ahhh, (y - 8)*ahhh, (raio-8)*ahhh, 0, 2 * Math.PI);
   pincel.fill();
 }
 
 function desenhaCirculo5(x, y, raio) {
   pincel.fillStyle = "black";
   pincel.beginPath();
-  pincel.arc(x + 35, y - 8, 2, 0, 2 * Math.PI);
+  pincel.arc((x + 35)*ahhh, (y - 8)*ahhh, (raio-8)*ahhh, 0, 2 * Math.PI);
   pincel.fill();
 }
-
-function desenhaTriangulo(x, y, z) {
+/*
+function desenhaTriangulo(x, y) {
   pincel.beginPath();
   pincel.moveTo(x + 50, y + 25);
   pincel.lineTo(x + 75, y + 50);
   pincel.lineTo(x + 75, y);
   pincel.fill();
-}
+} */
 
 function atualizaTela() {
 
-  var image = document.querySelector("img#banner")
-  var canvas = document.querySelector("canvas")
+  var image = document.querySelector("img#banner");
+  var canvas = document.querySelector("canvas");
 
   canvas.width = image.width;
   canvas.height = window.innerHeight;
 
   limpaTela();
-  desenhaCirculo3(x, y, 30);
-  desenhaCirculo2(x, y, 30);
-  desenhaCirculo(x, y, 10);
-  desenhaCirculo4(x, y, 10);
-  desenhaCirculo5(x, y, 10);
-  desenhaTriangulo(x, y, z);
+  desenhaCirculo3(x, y,raio2);
+  desenhaCirculo2(x, y, raio2);
+  desenhaCirculo(x, y, raio);
+  desenhaCirculo4(x, y, raio);
+  desenhaCirculo5(x, y, raio);
+  desenhaTriangulo(x, y);
   mazeRender(); /*  Está em "Maze.js" */
 }
 
@@ -139,4 +144,11 @@ function leDoTeclado(evento) {
 
 document.onkeydown = leDoTeclado;
 
+/*
+pincel.rotate(20 * Math.PI / 180);
+pincel.fillRect(50, 20, 100, 50);
 
+var tela = document.getElementById("canvas");
+var ctx = c.getContext("2d");
+ctx.rotate(20 * Math.PI / 180);
+ctx.fillRect(50, 20, 100, 50); */
