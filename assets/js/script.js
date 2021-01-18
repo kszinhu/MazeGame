@@ -1,5 +1,3 @@
-
-
 var tela = document.querySelector("canvas");
 var pincel = tela.getContext("2d");
 pincel.fillStyle = "lightgray";
@@ -76,8 +74,8 @@ function desenhaTriangulo(x, y, z) {
 
 function atualizaTela() {
 
-  var image = document.getElementById("banner")
-  var canvas = document.getElementById('image');
+  var image = document.querySelector("img#banner")
+  var canvas = document.querySelector("canvas")
 
   canvas.width = image.width;
   canvas.height = window.innerHeight;
@@ -89,6 +87,7 @@ function atualizaTela() {
   desenhaCirculo4(x, y, 10);
   desenhaCirculo5(x, y, 10);
   desenhaTriangulo(x, y, z);
+  mazeRender(); /*  Está em "Maze.js" */
 }
 
 var big = false;
@@ -139,3 +138,5 @@ function leDoTeclado(evento) {
 }
 
 document.onkeydown = leDoTeclado;
+
+
