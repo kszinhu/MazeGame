@@ -13,8 +13,6 @@ var y = 100;
 var raio = 10;
 var raio2 = 30;
 
-
-
 // códigos do teclado
 
 var esquerda = 37;
@@ -80,19 +78,19 @@ function desenhaTriangulo(x, y) {
 function atualizaTela() {
 
   var image = document.querySelector("img#banner");
-  var canvas = document.querySelector("canvas");
+  var canvas = document.querySelector("canvas#image");
 
   canvas.width = image.width;
   canvas.height = window.innerHeight;
 
   limpaTela();
+  mazeRender(); /*  Está em "Maze.js" */
   desenhaCirculo3(x, y,raio2);
   desenhaCirculo2(x, y, raio2);
   desenhaCirculo(x, y, raio);
   desenhaCirculo4(x, y, raio);
   desenhaCirculo5(x, y, raio);
   desenhaTriangulo(x, y);
-  mazeRender(); /*  Está em "Maze.js" */
 }
 
 var big = false;
