@@ -2,8 +2,9 @@ function mazeRender() {
   let canvas = document.querySelector("canvas#image");
   let content = canvas.getContext("2d");
 
-  let sizew = 60;
-  let sizef = 70;
+  let sizew = 60; // Linha
+  let sizef = 70; // Coluna
+  let wall = [];
 
   let maze = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -28,7 +29,26 @@ function mazeRender() {
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   ];
 
-  function update() {}
+  for (let row in maze) {
+    for (let column in maze) {
+      let aux = maze[row][column];
+      if (aux == 1) {
+        let wall = {
+          x: sizef * column,
+          y: sizew * row,
+          width: sizew,
+          height: sizef,
+        };
+        walls.push(wall);
+      }
+    }
+  }
+
+  function update() {
+    // Movimentação do Personagem
+    // Paredes
+    // 
+  }
   function render() {
     for (let row in maze) {
       for (let column in maze) {
