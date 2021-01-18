@@ -127,9 +127,9 @@
 		.container {
 			width: 65rem;
 		}
-		canvas#image{
+		/* canvas#image{
 			width: 1152px;
-		}
+		} */
 
 	}
 
@@ -789,6 +789,9 @@
 			.wrapper.style1 .content {
 				padding: 2rem;
 			}
+			/* canvas#image {
+				width: 662px;
+			} */
 
 		}
 

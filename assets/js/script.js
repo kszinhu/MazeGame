@@ -1,3 +1,5 @@
+
+
 var tela = document.querySelector("canvas");
 var pincel = tela.getContext("2d");
 pincel.fillStyle = "lightgray";
@@ -73,6 +75,13 @@ function desenhaTriangulo(x, y, z) {
 }
 
 function atualizaTela() {
+
+  var image = document.getElementById("banner")
+  var canvas = document.getElementById('image');
+
+  canvas.width = image.width;
+  canvas.height = window.innerHeight;
+
   limpaTela();
   desenhaCirculo3(x, y, 30);
   desenhaCirculo2(x, y, 30);
