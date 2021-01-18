@@ -90,7 +90,7 @@ function atualizaTela() {
   desenhaCirculo(x, y, raio);
   desenhaCirculo4(x, y, raio);
   desenhaCirculo5(x, y, raio);
-  desenhaTriangulo(x, y);
+  //desenhaTriangulo(x, y);
 }
 
 var big = false;
@@ -141,6 +141,20 @@ function leDoTeclado(evento) {
 }
 
 document.onkeydown = leDoTeclado;
+
+tela.onmousemove = desenhaCirculo;
+
+// atribuindo diretamente a função anônima
+tela.onmousedown = function() {
+
+    multi = 0.4;
+}
+
+// atribuindo diretamente a função anônima
+ tela.onmouseup = function() {
+
+    multi = 1;
+}
 
 /*
 pincel.rotate(20 * Math.PI / 180);
