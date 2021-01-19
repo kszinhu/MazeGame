@@ -84,12 +84,12 @@ function atualizaTela() {
   canvas.height = window.innerHeight;
 
   limpaTela();
-  mazeRender(); /*  Está em "Maze.js" */
   desenhaCirculo3(x, y,raio2);
   desenhaCirculo2(x, y, raio2);
   desenhaCirculo(x, y, raio);
   desenhaCirculo4(x, y, raio);
   desenhaCirculo5(x, y, raio);
+  mazeRender(); /*  Está em "Maze.js" */
   //desenhaTriangulo(x, y);
 }
 
