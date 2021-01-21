@@ -1,7 +1,11 @@
-(function mazeRender() {
-  var canvas = document.querySelector("canvas");
+function mazeRender() {
+  var image = document.querySelector("img#banner");
+  var canvas = document.querySelector("canvas#image");
   var context = canvas.getContext("2d");
-  
+
+  canvas.width = image.width;
+  canvas.height = window.innerHeight;
+
   // Controle do comprimento/altura do canvas
   var WIDTH = canvas.width,
     HEIGHT = canvas.height;
@@ -11,12 +15,12 @@
     UP = 38,
     RIGHT = 39,
     DOWN = 40;
-  
+
   // Variáveis de controle da movimentação
   var mvLeft = (mvUp = mvRight = mvDown = false);
 
   // Tamanho do muro
-  let size = 64;
+  let size = 128;
 
   /*Array de Wall
     Wall é um objeto gerado a cada linha e coluna, contendo:
@@ -37,9 +41,33 @@
   var player = {
     x: size + 2,
     y: size + 2,
-    width: 96,
-    height: 96, // 64 <- Altura das paredes
+    width: 128,
+    height: 128, // 128 <- Altura das paredes
     speed: 2,
+  };
+
+  // Objeto Câmera
+  var camera = {
+    x: 0,
+    y: 0,
+    width: WIDTH, // Comp. do Canvas
+    height: HEIGHT, // Altura do Canvas
+    leftInnerBoundary: function () {
+      // Fronteira Interna da Esquerda
+      return this.x + this.width * 0.25; // Poderia ser "camera.x" invés de "this.x"
+    },
+    rightInnerBoundary: function () {
+      // Fronteira Interna da Direita
+      return this.x + this.width * 0.85;
+    },
+    topInnerBoundary: function () {
+      // Fronteira Interna de Cima
+      return this.y + this.height * 0.25;
+    },
+    bottomInnerBoundary: function () {
+      // Fronteira Interna embaixo
+      return this.y + this.height * 0.85;
+    },
   };
 
   /* Mapa do Labirinto 
@@ -47,9 +75,9 @@
   */
   let maze = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
-    [0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
-    [0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1],
+    [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+    [2, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+    [2, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1],
     [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
@@ -68,11 +96,18 @@
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   ];
 
+  /*
+  "maze[0].length" retorna o número de colunas 
+  "maze.length" retorna o número de linhas
+  */
+  let Mwidth = maze[0].length * size,
+    Mheight = maze.length * size;
+
   // Muro
   for (let row in maze) {
     for (let column in maze[row]) {
       let aux = maze[row][column];
-      if (aux === 1) {
+      if (aux == 1) {
         let wall = {
           x: size * column,
           y: size * row,
@@ -83,6 +118,7 @@
       }
     }
   }
+
   function blockRectangle(objA, objB) {
     // [⚠]  Colocar muro vermelho quando há atrito, talvez seja uma possível adição
 
@@ -119,7 +155,7 @@
 
   function keydownHandler(e) {
     var key = e.keyCode;
-    // Pressionar a tecla 
+    // Pressionar a tecla
     switch (key) {
       case LEFT:
         mvLeft = true;
@@ -137,7 +173,7 @@
   }
 
   function keyupHandler(e) {
-    // Parar de pressionar a tecla 
+    // Parar de pressionar a tecla
     var key = e.keyCode;
     switch (key) {
       case LEFT:
@@ -172,24 +208,60 @@
       // Verificar colisão
       blockRectangle(player, wall);
     }
+
+    // "Câmera" sobre o labirinto
+
+    if (player.x < camera.leftInnerBoundary()) {
+      /* Se o personagem tiver se deslocado além do limite a esquerda
+      Então vamos ajustar as cordenadas em x da câmera:
+      [1] Vai receber a posição do personagem menos 50% da largura da câmera
+      */
+      camera.x = player.x - camera.width * 0.25;
+    }
+    if (player.x + player.width > camera.rightInnerBoundary()) {
+      // Right, como o final é a esquerda somamos a largura do personagem
+      camera.x = player.x + player.width - camera.width * 0.85;
+    }
+    if (player.y < camera.topInnerBoundary()) {
+      // Limite Top
+      camera.y = player.y - camera.height * 0.25;
+    }
+    if (player.y + player.height > camera.bottomInnerBoundary()) {
+      // Limite Buttom
+      camera.y = player.y + player.height - camera.height * 0.85;
+    }
+    /* max() - Retorna MAIOR valor | min() Retorna MENOR valor
+    
+      [1] - Menor valor possível a esquerda, é 0 (Não vai exibir nada a esquerda do Canvas)
+
+      [2] - Largura total do labirinto - a largura que a câmera exibe (extremo da câmera, exibe o extremo do labirinto)
+
+      [*] Estou dizendo então que as cordenadas não podem ser nem menores que 0 e nem maiores que a largura/altura total do labirinto
+    */
+    camera.x = Math.max(0, Math.min(Mwidth - camera.width, camera.x));
+    camera.y = Math.max(0, Math.min(Mheight - camera.height, camera.y));
   }
 
   function render() {
+    // Responsive Canvas
+    canvas.width = image.width;
+    canvas.height = window.innerHeight;
+    
     // Renderização dos Muros do Labirinto e do Personagem
     context.clearRect(0, 0, WIDTH, HEIGHT);
     context.save();
-
+    context.translate(-camera.x, -camera.y);
     for (let row in maze) {
       for (let column in maze[row]) {
         let aux = maze[row][column];
-        if (aux == 1) {
+        if (aux == 1 || aux == 2) {
           let x = column * size;
           let y = row * size;
           context.fillRect(x, y, size, size);
         }
       }
     }
-    
+
     context.drawImage(img, player.x, player.y, player.width, player.height);
     context.restore();
   }
@@ -200,4 +272,4 @@
     requestAnimationFrame(loop, canvas);
   }
   requestAnimationFrame(loop, canvas);
-})();
+};
