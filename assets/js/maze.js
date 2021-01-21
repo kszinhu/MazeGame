@@ -8,13 +8,15 @@
 
   // Controle do comprimento/altura do canvas
   var WIDTH = canvas.width,
-    HEIGHT = canvas.height;
+    HEIGHT = canvas.height,
+    bigPlayer = false;
 
   // Keys do Teclado
   var LEFT = 37,
     UP = 38,
     RIGHT = 39,
-    DOWN = 40;
+    DOWN = 40,
+    SPACE = 32;
 
   // Variáveis de controle da movimentação
   var mvLeft = (mvUp = mvRight = mvDown = false);
@@ -41,8 +43,8 @@
   var player = {
     x: size + 2,
     y: size + 2,
-    width: 128,
-    height: 128, // 128 <- Altura das paredes
+    width: size*1.25,
+    height: size*1.25, // 128 <- Altura das paredes
     speed: 2,
   };
 
@@ -169,6 +171,9 @@
       case DOWN:
         mvDown = true;
         break;
+      case SPACE:
+        bigPlayer = true;
+        break;
     }
   }
 
@@ -188,6 +193,9 @@
       case DOWN:
         mvDown = false;
         break;
+      case SPACE:
+        bigPlayer = false;
+        break;
     }
   }
 
@@ -203,6 +211,14 @@
     } else if (mvDown && !mvUp) {
       player.y += player.speed;
     }
+    //Controle de tamanho do player
+    if (bigPlayer) {
+      player.width = size*0.5;
+      player.height = size*0.5;
+    } else {
+      player.width = size*1.25;
+      player.height = size*1.25;
+      }
     for (let i in walls) {
       let wall = walls[i];
       // Verificar colisão
@@ -273,5 +289,3 @@
   }
   requestAnimationFrame(loop, canvas);
 })();
-
-// Função Anônima para efetuar

@@ -89,11 +89,8 @@ function atualizaTela() {
   desenhaCirculo(x, y, raio);
   desenhaCirculo4(x, y, raio);
   desenhaCirculo5(x, y, raio);
-  mazeRender(); /*  Está em "Maze.js" */
   //desenhaTriangulo(x, y);
 }
-
-var big = false;
 
 setInterval(atualizaTela, 20);
 
@@ -103,15 +100,6 @@ function leDoTeclado(evento) {
     if ([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
       e.preventDefault();
     }
-    window.onkeydown = function (e) {
-      if (e.keyCode == 13 && big == false) {
-        // console.log("BOM DIA!"); COLOCA O SCRIPT DE DIMINUIR O TATU AQUI!
-        big = true;
-      } else {
-        // console.log("BOA NOITE!"); COLOCA O SCRIPT DE AUMENTAR O TATU AQUI!
-        big = false;
-      }
-    };
   });
 
   //   window.onmousedown = function() {
