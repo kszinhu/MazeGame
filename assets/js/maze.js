@@ -1,4 +1,4 @@
-function mazeRender() {
+(function mazeRender() {
   var image = document.querySelector("img#banner");
   var canvas = document.querySelector("canvas#image");
   var context = canvas.getContext("2d");
@@ -272,4 +272,6 @@ function mazeRender() {
     requestAnimationFrame(loop, canvas);
   }
   requestAnimationFrame(loop, canvas);
-};
+})();
+
+// Função Anônima para efetuar
