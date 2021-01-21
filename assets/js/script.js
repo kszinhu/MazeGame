@@ -89,7 +89,6 @@ function atualizaTela() {
   desenhaCirculo(x, y, raio);
   desenhaCirculo4(x, y, raio);
   desenhaCirculo5(x, y, raio);
-  mazeRender(); /*  Está em "Maze.js" */
   //desenhaTriangulo(x, y);
 }
 
