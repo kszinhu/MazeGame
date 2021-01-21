@@ -246,7 +246,7 @@
     // Responsive Canvas
     canvas.width = image.width;
     canvas.height = window.innerHeight;
-    
+
     // Renderização dos Muros do Labirinto e do Personagem
     context.clearRect(0, 0, WIDTH, HEIGHT);
     context.save();

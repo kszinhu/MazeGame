@@ -25,21 +25,21 @@ var Enter = 13;
 function desenhaCirculo(x, y, raio) {
   pincel.fillStyle = "red";
   pincel.beginPath();
-  pincel.arc((x + 21)*multi, (y + 4)*multi, raio*multi, 0, 2 * Math.PI);
+  pincel.arc((x + 21) * multi, (y + 4) * multi, raio * multi, 0, 2 * Math.PI);
   pincel.fill();
 }
 
 function desenhaCirculo2(x, y, raio) {
   pincel.fillStyle = "#964b00";
   pincel.beginPath();
-  pincel.arc((x + 20)*multi, y*multi, raio*multi, 0, 2 * Math.PI);
+  pincel.arc((x + 20) * multi, y * multi, raio * multi, 0, 2 * Math.PI);
   pincel.fill();
 }
 
 function desenhaCirculo3(x, y, raio) {
   pincel.fillStyle = "#964b00";
   pincel.beginPath();
-  pincel.arc((x + 20)*multi, (y + 40)*multi, raio*multi, 0, 2 * Math.PI);
+  pincel.arc((x + 20) * multi, (y + 40) * multi, raio * multi, 0, 2 * Math.PI);
   pincel.fill();
 }
 
@@ -56,14 +56,26 @@ function limpaTela() {
 function desenhaCirculo4(x, y, raio) {
   pincel.fillStyle = "black";
   pincel.beginPath();
-  pincel.arc((x + 7)*multi, (y - 8)*multi, (raio-8)*multi, 0, 2 * Math.PI);
+  pincel.arc(
+    (x + 7) * multi,
+    (y - 8) * multi,
+    (raio - 8) * multi,
+    0,
+    2 * Math.PI
+  );
   pincel.fill();
 }
 
 function desenhaCirculo5(x, y, raio) {
   pincel.fillStyle = "black";
   pincel.beginPath();
-  pincel.arc((x + 35)*multi, (y - 8)*multi, (raio-8)*multi, 0, 2 * Math.PI);
+  pincel.arc(
+    (x + 35) * multi,
+    (y - 8) * multi,
+    (raio - 8) * multi,
+    0,
+    2 * Math.PI
+  );
   pincel.fill();
 }
 /*
@@ -76,7 +88,6 @@ function desenhaTriangulo(x, y) {
 } */
 
 function atualizaTela() {
-
   var image = document.querySelector("img#banner");
   var canvas = document.querySelector("canvas#image");
 
@@ -84,7 +95,7 @@ function atualizaTela() {
   canvas.height = window.innerHeight;
 
   limpaTela();
-  desenhaCirculo3(x, y,raio2);
+  desenhaCirculo3(x, y, raio2);
   desenhaCirculo2(x, y, raio2);
   desenhaCirculo(x, y, raio);
   desenhaCirculo4(x, y, raio);
@@ -144,16 +155,14 @@ document.onkeydown = leDoTeclado;
 tela.onmousemove = desenhaCirculo;
 
 // atribuindo diretamente a função anônima
-tela.onmousedown = function() {
-
-    multi = 0.4;
-}
+tela.onmousedown = function () {
+  multi = 0.4;
+};
 
 // atribuindo diretamente a função anônima
- tela.onmouseup = function() {
-
-    multi = 1;
-}
+tela.onmouseup = function () {
+  multi = 1;
+};
 
 /*
 pincel.rotate(20 * Math.PI / 180);
