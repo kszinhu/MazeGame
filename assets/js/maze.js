@@ -19,7 +19,7 @@
   let size = 64;
 
   /*Array de Wall
-    Wall é um objeto gerado a cada linha e colunda, contendo:
+    Wall é um objeto gerado a cada linha e coluna, contendo:
     x/y -> coordenada no canvas
     widht/height -> comprimento e largura do muro
   */
@@ -92,7 +92,9 @@
     let sumWidth = (objA.width + objB.width) / 2;
     let sumHeight = (objA.height + objB.height) / 2;
 
-    // Se a distância absoluta da dist. entre os objetos no Eixo X/Y é menor que a soma das larguras/alturas
+    /*Se a distância absoluta da dist. entre os objetos no Eixo X/Y 
+      é menor que a soma das larguras/alturas
+    */
     if (Math.abs(distX) < sumWidth && Math.abs(distY) < sumHeight) {
       /* Se for verdade houve colisão 
       [1] Overlap = Quantidade da Sobreposição entre os objetos
