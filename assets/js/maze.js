@@ -4,7 +4,7 @@
   var context = canvas.getContext("2d");
 
   canvas.width = image.width;
-  canvas.height = window.innerHeight;
+  canvas.height = window.innerHeight / 1.6;
 
   // Controle do comprimento/altura do canvas
   var WIDTH = canvas.width,
@@ -22,7 +22,7 @@
   var mvLeft = (mvUp = mvRight = mvDown = false);
 
   // Tamanho do muro
-  let size = 128;
+  let size = 72;
 
   /*Array de Wall
     Wall é um objeto gerado a cada linha e coluna, contendo:
@@ -43,8 +43,8 @@
   var player = {
     x: size + 2,
     y: size + 2,
-    width: size*1.25,
-    height: size*1.25, // 128 <- Altura das paredes
+    width: size * 1.25,
+    height: size * 1.25, // 128 <- Altura das paredes
     speed: 2,
   };
 
@@ -213,12 +213,12 @@
     }
     //Controle de tamanho do player
     if (bigPlayer) {
-      player.width = size*0.5;
-      player.height = size*0.5;
+      player.width = size * 0.5;
+      player.height = size * 0.5;
     } else {
-      player.width = size*1.25;
-      player.height = size*1.25;
-      }
+      player.width = size * 1.25;
+      player.height = size * 1.25;
+    }
     for (let i in walls) {
       let wall = walls[i];
       // Verificar colisão
@@ -261,7 +261,7 @@
   function render() {
     // Responsive Canvas
     canvas.width = image.width;
-    canvas.height = window.innerHeight;
+    canvas.height = window.innerHeight / 1.6;
 
     // Renderização dos Muros do Labirinto e do Personagem
     context.clearRect(0, 0, WIDTH, HEIGHT);
