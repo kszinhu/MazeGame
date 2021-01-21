@@ -121,7 +121,7 @@
     }
   }
 
-  function blockRectangle(objA, objB) {
+  function block(objA, objB) {
     // [⚠]  Colocar muro vermelho quando há atrito, talvez seja uma possível adição
 
     let distX = objA.x + objA.width / 2 - (objB.x + objB.width / 2); // Distancia desses dois objetos no Eixo X
@@ -133,7 +133,7 @@
     /*Se a distância absoluta da dist. entre os objetos no Eixo X/Y 
       é menor que a soma das larguras/alturas
     */
-    if (Math.abs(distX) < sumWidth && Math.abs(distY) < sumHeight) {
+    if (Math.abs(distX) <= sumWidth && Math.abs(distY) <= sumHeight) {
       /* Se for verdade houve colisão 
       [1] Overlap = Quantidade da Sobreposição entre os objetos
       [2] Agora precisa saber qual eixo, houve a sobreposição (X ou Y)
@@ -222,7 +222,7 @@
     for (let i in walls) {
       let wall = walls[i];
       // Verificar colisão
-      blockRectangle(player, wall);
+      block(player, wall);
     }
 
     // "Câmera" sobre o labirinto
@@ -262,7 +262,7 @@
     // Responsive Canvas
     canvas.width = image.width;
     canvas.height = window.innerHeight;
-    
+
     // Renderização dos Muros do Labirinto e do Personagem
     context.clearRect(0, 0, WIDTH, HEIGHT);
     context.save();
