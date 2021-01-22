@@ -1,4 +1,4 @@
-(function mazeRender() {
+(function () {
   var image = document.querySelector("img#banner");
   var canvas = document.querySelector("canvas#image");
   var context = canvas.getContext("2d");
