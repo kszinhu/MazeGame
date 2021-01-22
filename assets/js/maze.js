@@ -2,6 +2,7 @@
   var image = document.querySelector("img#banner");
   var canvas = document.querySelector("canvas#image");
   var context = canvas.getContext("2d");
+  var playerImg = document.querySelector("img#P1Image");
 
   canvas.width = image.width;
   canvas.height = window.innerHeight / 1.6;
@@ -34,6 +35,7 @@
   // Imagem usada no personagem
   var img = new Image();
   img.src = "images/LuanG.png";
+  img.id = "P1Image";
 
   /* Objeto personagem
     x/y -> coordenada do eixo central no canvas
