@@ -124,19 +124,21 @@ function leDoTeclado(evento) {
   //     console.log("BOA NOITE");
   // }
 
+  /* Botão para abrir os PopUps
   if (evento.keyCode == cima) {
     y = y - taxa;
-    PopUp(1);
+    newPopup();
   } else if (evento.keyCode == baixo) {
     y = y + taxa;
-    PopUp(1);
+    newPopup();
   } else if (evento.keyCode == esquerda) {
     x = x - taxa;
-    PopUp(1);
+    newPopup();
   } else if (evento.keyCode == direita) {
     x = x + taxa;
-    PopUp(1);
-  }
+    newPopup();
+  } 
+  */
 }
 
 document.onkeydown = leDoTeclado;
