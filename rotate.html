@@ -1,51 +1,137 @@
 <!DOCTYPE html>
-  <html lang="pt-br">
-    <head>
-      <meta charset="utf-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <title>Transformação Linear</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="icon" href="images/favicon.png">
-    </head>
-    <body>
-        <header id="header">
-            <div class="logo"><a href="Repositório Github">Rotação<span>Em Computação Gráfica</span></a></div>
-        </header>
-    
-        <!-- Main -->
-        <section id="main">
-            <div class="inner">
-    
-                <!-- One -->
-                <section id="one" class="wrapper style1">
-    
-                    <div class="image fit flush">
-                        <img id="banner" src="images/banrotate.jpg" alt="" />
-                    </div>
-                    <header class="special">
-                        <h2>Matriz de Rotação</h2>
-                        <p>R2 ➜ R2</p>
-                    </header>
-                    <div class="content">
-                        <p>As transformações geométricas no plano são muito utilizadas em computação gráfica para a construção de figuras e produção de imagens.</p>
-                        <p>Vamos representar um ponto genérico <em>P(x, y)</em> de uma figura pela matriz coluna:</p>
-                        <img src="https://lh4.ggpht.com/-JMUzdbe0kHc/Teovl_ouYcI/AAAAAAAANU0/P9D1zOXlfkE/clip_image002_thumb.gif" style="border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto">
-                        <p>Um ponto correspondente a P seria <em>P'(x', y')</em>, obtido pela transformação</p>
-                        <img src="https://lh3.ggpht.com/-j4GlV8cjZXY/TeovnG_I9LI/AAAAAAAANU8/2C8hR1vlKL4/clip_image004_thumb.gif" style="border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto">
-                        <p>
-                            Para cada transformação vamos obter uma relação entre P e P', por meio de uma matriz (considerada Matriz de Transformação).
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Transformação Linear</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" href="images/favicon.png">
+</head>
+
+<body>
+    <header id="header">
+        <div class="logo"><a href="Repositório Github">Rotação<span>Em Computação Gráfica</span></a></div>
+    </header>
+
+    <!-- Main -->
+    <section id="main">
+        <div class="inner">
+
+            <!-- One -->
+            <section id="one" class="wrapper style1">
+
+                <div class="image fit flush">
+                    <img id="banner" src="images/banrotate.jpg" alt="" />
+                </div>
+                <header class="special">
+                    <h2>Matriz de Rotação</h2>
+                    <p>R2 ➜ R2</p>
+                </header>
+                <div class="content">
+                    <p>As transformações geométricas no plano são muito utilizadas em computação gráfica para a
+                        construção de figuras e produção de imagens.</p>
+                    <p>Vamos representar um ponto genérico <em>P(x, y)</em> de uma figura pela matriz coluna:</p>
+                    <img src="https://lh4.ggpht.com/-JMUzdbe0kHc/Teovl_ouYcI/AAAAAAAANU0/P9D1zOXlfkE/clip_image002_thumb.gif"
+                        style="border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto">
+                    <p>Um ponto correspondente a P seria <em>P'(x', y')</em>, obtido pela transformação</p>
+                    <img src="https://lh3.ggpht.com/-j4GlV8cjZXY/TeovnG_I9LI/AAAAAAAANU8/2C8hR1vlKL4/clip_image004_thumb.gif"
+                        style="border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto">
+                    <p>
+                        Para cada transformação vamos obter uma relação entre P e P', por meio de uma matriz
+                        (considerada Matriz de Transformação).
                         <br><br>
-                            Vamos considerar unicamente a rotação de um ponto <em>P(x, y)</em> em torno da origem (0, 0), sob um ângulo de medida θ dado em graus, sendo θ > 0 e ainda tomando o sentido anti-horário.
-                            <img src="https://lh3.ggpht.com/-MHX3rrcncjw/TeovveCLj-I/AAAAAAAANVs/2YFWjlLO9Js/image_thumb%25255B3%25255D.png" style="border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto">
-                            Analisando a figura acima, vemos que o ponto P se deslocou numa rotação em sentido anti-horário até um ponto correspondente P'. Em seguida veja que para cada ponto P teremos uma abscissa e ordenada diferente.
-                            <br><br>
-                            Observando o triângulo OPQ, o ponto P(x, y) tem suas coordenadas expressas por:
+                        Vamos considerar unicamente a rotação de um ponto <em>P(x, y)</em> em torno da origem (0, 0),
+                        sob um ângulo de medida θ dado em graus, sendo θ > 0 e ainda tomando o sentido anti-horário.
+                        <img src="https://lh3.ggpht.com/-MHX3rrcncjw/TeovveCLj-I/AAAAAAAANVs/2YFWjlLO9Js/image_thumb%25255B3%25255D.png"
+                            style="border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto">
+                        Analisando a figura acima, vemos que o ponto P se deslocou numa rotação em sentido anti-horário
+                        até um ponto correspondente P'. Em seguida veja que para cada ponto P teremos uma abscissa e
+                        ordenada diferente.
+                        <br><br>
+                        Observando o triângulo OPQ, o ponto P(x, y) tem suas coordenadas expressas por:
+                        <img src="https://lh5.ggpht.com/-T68OsX6zl4U/Teovwu8MohI/AAAAAAAANV0/xbdodo5vEfI/clip_image018_thumb.gif"
+                            style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px">
+                        <br>
+                        <img src="https://lh6.ggpht.com/-GXw5xRei_Rk/TeovxzFwMWI/AAAAAAAANV8/0znoIB8CteI/clip_image020_thumb.gif"
+                            style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px">
+                        <br>E pelo teorema pitagórico, temos que a medida do raio <i>r</i> é dada por:<br>
+                        <img
+                            src="https://lh4.ggpht.com/-Bj_abtrHuF8/TeovzARhW1I/AAAAAAAANWE/jLR180PSwOw/clip_image022_thumb.gif">
+                        <br>Se rotacionarmos P de um ângulo igual a θ, em graus, ele se transforma num ponto P’.
+                        Observando o triângulo OP’Q’, temos que:<br>
+                        <img
+                            src="https://lh3.ggpht.com/-YMTMBvwi4Ss/Teov0uISxpI/AAAAAAAANWM/I759RjCul_o/clip_image024_thumb.gif">
+                        <br>Adição e subtração de arcos nos leva a:<br>
+                        <img
+                            src="https://lh4.ggpht.com/-rA-eYIHB738/Teov14_edII/AAAAAAAANWU/ku3dDzOePJs/clip_image026_thumb.gif"><br>
+                        <img
+                            src="https://lh6.ggpht.com/-QagSR2MFtDo/Teov3Aej6VI/AAAAAAAANWc/-Pz8MwPBoxo/clip_image028_thumb.gif">
+                        <br> Substituindo <strong>(4) em (3)</strong> obtemos:<br>
+                        <img
+                            src="https://lh3.ggpht.com/-gHeBzdidyI4/Teov4omutMI/AAAAAAAANWk/u5DCfTLN95w/clip_image030_thumb.gif">
+                        <br> Agora, podemos substituir as relações <strong>(1) e (2)</strong> na relação <b>(6)</b>:<br>
+                        <img
+                            src="https://lh6.ggpht.com/-cHLP5yesA9M/Teov5wxQY1I/AAAAAAAANWs/qfTvxVEprrU/clip_image032_thumb.gif">
+                        <br>
+                        <img
+                            src="https://lh3.ggpht.com/-iMfKF-TzhPo/Teov7Ujvt4I/AAAAAAAANW0/alvgotd3xc4/clip_image034_thumb.gif">
+                        <br>De modo análogo procedemos para y’:<br>
+                        <img
+                            src="https://lh4.ggpht.com/-17OVJwlbgKs/Teov8jtnLiI/AAAAAAAANW8/IbCz8Ww-UIA/clip_image036_thumb.gif">
+                        <br>Substituindo <strong>(5) em (8)</strong>, obtemos:<br>
+                        <img
+                            src="https://lh5.ggpht.com/-YaHn5HjbjE0/Teov96RnB4I/AAAAAAAANXE/eEdgaseyznk/clip_image038_thumb.gif">
+                        <br>Substituímos, agora, <strong>(1) e (2) em (9)</strong>:<br>
+                        <img
+                            src="https://lh6.ggpht.com/-vXVCJL8uRdg/Teov_AZHbII/AAAAAAAANXM/BHJtukx86LQ/clip_image040_thumb.gif">
+                        <br>
+                        <img
+                            src="https://lh6.ggpht.com/-8FGQK4F8D8w/TeowAp7ZtTI/AAAAAAAANXU/0tIJtRBlw6w/clip_image042_thumb.gif">
+                        <br>Podemos escrever na forma matricial:<br>
+                        <img
+                            src="https://lh3.ggpht.com/-B9aXeGoy6kU/TeowB405b7I/AAAAAAAANXc/VrKXTk7IXGg/clip_image044_thumb.gif">
+                        <br>Ou seja:<br>
+                        <img
+                            src="https://lh6.ggpht.com/-wubFKeakqp8/TeowDM2TGAI/AAAAAAAANXk/THfrZbS_pQ4/clip_image046_thumb.gif">
+                        <br>Onde a matriz transformação é dada por:<br>
+                        <img
+                            src="https://lh4.ggpht.com/-SeaZ19CQ12A/TeowEDqJX7I/AAAAAAAANXs/P6OJrFLH9zQ/clip_image048_thumb.gif">
+                    </p>
+                </div>
+            </section>
+            <section id="two" class="wrapper style2">
+                <header>
+                    <h2>Exemplo</h2>
+                    <p>Ponto rotacionado em 180º em torno da origim no sentido anti-horário</p>
+                </header>
+                <div class="spotlight alt">
+                    <div class="image flush"><img
+                            src="https://lh3.ggpht.com/-cLaPSkL-l04/TeowFht66EI/AAAAAAAANX0/Ozt9tTvGKFk/image_thumb%25255B5%25255D.png"
+                            alt="" /></div>
+                    <div class="inner" style="color: white">
+                        <p>
+                            Como θ = 180°, temos que:<br>
+                            <img src="https://lh6.ggpht.com/-sKyn8sFaEeM/TeowGzNcvUI/AAAAAAAANX8/1y1r4d5fY8M/clip_image052_thumb.gif"
+                                style=" background: white; border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px">
+                            <br>Desta forma:<br>
+                            <img src="https://lh3.ggpht.com/-0PbbZT4byqw/TeowHxNVMFI/AAAAAAAANYE/nEyPcfV7hs8/clip_image054_thumb.gif"
+                                style=" background: white; border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px"><br>
+                            <img src="https://lh5.ggpht.com/-y7NwKr7IfRg/TeowJA1WQeI/AAAAAAAANYM/-hBwPYCxKLE/clip_image056_thumb.gif"
+                                style=" background: white; border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px"><br>
+                            <img src="https://lh4.ggpht.com/-tYuj59HBn04/TeowKb-MUPI/AAAAAAAANYU/ramt93H2u7g/clip_image058_thumb.gif"
+                                style=" background: white; border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px">
 
                         </p>
-
                     </div>
-    </body>
-  </html>
+                </div>
+            </section>
+        </div>
+    </section>
+</body>
+
+</html>
+
 </html>

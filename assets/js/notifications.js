@@ -1,20 +1,40 @@
-{
-    /* Alterar ID com as respesctivas transformações */
-var id = document.querySelector(".popup")
-id.innerHTML = `<a href="#" class="buttonpopup" onclick="javascript:newPopup(id)">Explicação</a>`
+// Função que define qual página PopUp será aberto
 
+function whatPage(move) {
+  /* Alterar ID com as respesctivas transformações */
+  var id = document.querySelector(".buttonpopup");
+  id.innerHTML = `<a href="#" class="buttonpopup" onclick="javascript:newPopup(`;
+  move;
+  `)">Explicação</a>`;
 }
 
+// Função que abre PopUp's
 
 function newPopup(id) {
-    if (id === 1) {
-        // ID para rotação (cima/baixo)
-        let Window = window.open(
-            './rotate.html',
-            'pagina',
-            "width=350, height=255, top=100, left=110, scrollbars=no");
-    }
-
+  if (id === 0) {
+    // ID para rotação (cima/baixo)
+    let Window = window.open(
+      "./translate.html",
+      "pagina",
+      "width=450, height=255, top=100, left=110, scrollbars=no"
+    );
+  }
+  if (id === 1) {
+    // ID para rotação (cima/baixo)
+    let Window = window.open(
+      "./rotate.html",
+      "pagina",
+      "width=450, height=255, top=100, left=110, scrollbars=no"
+    );
+  }
+  if (id === 2) {
+    // ID para aumentar/diminuir (cima/baixo)
+    let Window = window.open(
+      "./incdrease.html",
+      "pagina",
+      "width=450, height=255, top=100, left=110, scrollbars=no"
+    );
+  }
 }
 
 /* Agora vai abrir um popUp caso clicar no botão
