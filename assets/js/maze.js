@@ -162,18 +162,23 @@
     switch (key) {
       case LEFT:
         mvLeft = true;
+        whatPage(0);
         break;
       case UP:
         mvUp = true;
+        whatPage(1);
         break;
       case RIGHT:
         mvRight = true;
+        whatPage(0);
         break;
       case DOWN:
         mvDown = true;
+        whatPage(1);
         break;
       case SPACE:
         bigPlayer = true;
+        whatPage(2);
         break;
     }
   }
