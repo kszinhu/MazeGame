@@ -2,10 +2,9 @@
 
 function whatPage(move) {
   /* Alterar ID com as respesctivas transformações */
-  var id = document.querySelector(".buttonpopup");
-  id.innerHTML = `<a href="#" class="buttonpopup" onclick="javascript:newPopup(`;
-  move;
-  `)">Explicação</a>`;
+  var id = document.querySelector("#button");
+  id.outerHTML = `<div class="button" style="margin: 0 auto; width: 50%;"><a class="buttonpopup" onclick="javascript:newPopup(${move})">Explicação</a></div>`;
+  //   id.innerHTML = `<a class="buttonpopup" onclick="javascript:newPopup(${move})">Explicação</a>`;
 }
 
 // Função que abre PopUp's

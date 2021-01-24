@@ -541,7 +541,7 @@ textarea {
 }
 
 a {
-  color: #54a354;
+  /* color: #54a354; */
 }
 strong,
 b {
@@ -571,14 +571,13 @@ hr {
 }
 
 /* Button */
-
 .buttonpopup {
   display: block;
-  width: 160px;
+  width: 100%;
   height: 40px;
   line-height: 20px;
   padding: 10px 5px;
-  margin: 20px;
+  margin: auto;
   background-color: #000;
   color: #fff;
   border-radius: 5px;
@@ -956,4 +955,9 @@ body:after {
   #footer {
     padding: 1rem 0 0.1rem 0;
   }
+}
+
+div.buttonpopup {
+  margin: 0 auto;
+  width: 50%;
 }
