@@ -162,22 +162,27 @@
     switch (key) {
       case LEFT:
         whatPage(0);
+        img.src = "./images/tatu/tatu_esquerda.png";
         mvLeft = true;
         break;
       case UP:
         whatPage(1);
+        img.src = "./images/tatu/tatu_cima.png";
         mvUp = true;
         break;
       case RIGHT:
         whatPage(0);
+        img.src = "./images/tatu/tatu1.png";
         mvRight = true;
         break;
       case DOWN:
         whatPage(1);
+        img.src = "./images/tatu/tatu_baixo.png";
         mvDown = true;
         break;
       case SPACE:
         whatPage(2);
+        img.src = "./images/tatu/tatu_small.png";
         bigPlayer = true;
         break;
     }
