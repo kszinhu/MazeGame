@@ -12,7 +12,8 @@
 
 <body>
     <header id="header">
-        <div class="logo"><a href="https://github.com/kszinhu/mazegame">Contrair e Expandir<span>Em Computação Gráfica</span></a>
+        <div class="logo"><a href="https://github.com/kszinhu/mazegame">Contrair e Expandir<span>Em Computação
+                    Gráfica</span></a>
         </div>
     </header>
 
@@ -24,17 +25,45 @@
             <section id="one" class="wrapper style1">
 
                 <div class="image fit flush">
-                    <img id="banner" src="images/bantrans.jpg" alt="" />
+                    <img id="banner" src="images/banresize.jpg" alt="" />
                 </div>
                 <header class="special">
-                    <h2>Matriz de Redução</h2>
-                    <p>R2 ➜ R2</p>
+                    <h2>Matriz de Escala</h2>
+                    <p>ℝ2 ➜ ℝ2</p>
                 </header>
 
                 <!-- Explicação -->
                 <div class="content">
                     <p>
-                        Isadora linda
+
+                        Esta transformação baseia-se em <strong>expansão ou contração</strong>, é bastante utilizada quando queremos
+                        fazer um objeto parecer maior ou menor, em outras palavras, <strong>mudar sua escala</strong>. Quando damos um
+                        zoom em um fotografia para ampliá-la ou diminui-la estamos aplicando uma transformação de
+                        escala. Seja um ponto P(x, y) sobre o qual queremos efetuar
+                        a transformação e 𝛼 e 𝛽 números reais não nulos, podemos definir a função T como sendo:
+                        <br>
+                        T: ℝ² → ℝ²
+                        <br>
+                        t(x, y) ⟼ (𝛼x, 𝛽y)
+                        <br>Sendo a Matriz da Transformação:<br>
+                        <img src="./images/incdec_1.png"
+                            style="width:50%; height: 50%; border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto">
+                        <br><img src="./images/incdec_2.png"
+                            style="width:100%; height: 100%; border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto">
+                        <br>Esta transformação faz com que os objetos sejam esticados ou encolhidos na direção dos eixos
+                        x e y. O redimensionamento <strong>S(Sx, Sy)</strong>
+                        mapeia o ponto (x, y) ao ponto (x′, y′) dado por:<br>
+                        <img src="./images/incdec_3.png"
+                            style="width:50%; height: 50%; border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto">
+                        <br>
+                        Sx é o <strong>fator de escala na direção do eixo x</strong>. Se <strong>|Sx| > 1</strong>,
+                        então ocorre uma <strong>expansão da direção
+                        do eixo x</strong>. Se <strong>|Sx| < 1, então ocorre uma contração no lugar</strong>. Se
+                        </strong>, além da
+                        expansão ou contração na direção do eixo x, uma reflexão neste eixo também ocorre</strong>. Os
+                        mesmos resultados ocorre com Sy que é o fator de escala na direção do eixo y.
+                        <br>
+
                     </p>
                 </div>
             </section>
