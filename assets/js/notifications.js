@@ -1,9 +1,14 @@
-// Função que define qual página PopUp será aberto
+// Quando iniciar a página começar com TranslatePopUp
+window.onload = initPage();
+function initPage() {
+  whatPage(0);
+}
 
+// Função que define qual página PopUp será aberto
 function whatPage(move) {
   /* Alterar ID com as respesctivas transformações */
   var id = document.querySelector("#button");
-  id.outerHTML = `<div class="button" style="margin: 0 auto; width: 50%;"><a class="buttonpopup" onclick="javascript:newPopup(${move})">Explicação</a></div>`;
+  id.outerHTML = `<div id="button" style="margin: 0 auto; width: 50%;"><a class="buttonpopup" onclick="javascript:newPopup(${move})">Explicação</a></div>`;
   //   id.innerHTML = `<a class="buttonpopup" onclick="javascript:newPopup(${move})">Explicação</a>`;
 }
 

@@ -161,24 +161,24 @@
     // Pressionar a tecla
     switch (key) {
       case LEFT:
-        mvLeft = true;
         whatPage(0);
+        mvLeft = true;
         break;
       case UP:
-        mvUp = true;
         whatPage(1);
+        mvUp = true;
         break;
       case RIGHT:
-        mvRight = true;
         whatPage(0);
+        mvRight = true;
         break;
       case DOWN:
-        mvDown = true;
         whatPage(1);
+        mvDown = true;
         break;
       case SPACE:
-        bigPlayer = true;
         whatPage(2);
+        bigPlayer = true;
         break;
     }
   }
