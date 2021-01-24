@@ -155,11 +155,17 @@ tela.onmouseup = function () {
   multi = 1;
 };
 
-/*
-pincel.rotate(20 * Math.PI / 180);
-pincel.fillRect(50, 20, 100, 50);
-
-var tela = document.getElementById("canvas");
-var ctx = c.getContext("2d");
-ctx.rotate(20 * Math.PI / 180);
-ctx.fillRect(50, 20, 100, 50); */
+rotate = 0; // Declaramos uma variável com a rotação 0.
+            
+document.addEventListener("DOMContentLoaded", function(){ // Usando eventListener, e quando a página for carregada...            
+  document.getElementById("next").addEventListener("click", function(){ //Quando houver um clique no botão next..                
+      if(rotate== 360){rotate = 0} //Verificamos se o valor da variável rotate é 360, se for zeramos o valor.                
+      rotate = rotate + 30; //Fazemoz um incremento de 30, ou seja se antes tinha 0 e incrementamos 30 temos o valor de 30, na próxima execução se temos 30 e incrementamos mais 30, vamos para 60 e assim por diante.                
+      document.getElementById("P1Image").style.transform = "rotate("+rotate+"deg)"; //Acessamos o elemento img e através do style.transform atribuimos o rotate com o valor atual de nossa variável.
+    });
+    document.getElementById("back").addEventListener("click", function(){ //Quando houver um clique no botão voltar..
+      if(rotate== -360){rotate = 0} //Verificamos se o valor da variável rotate é -360, se for zeramos o valor.
+      rotate = rotate + -30 ;//Fazemoz um incremento de -30, ou seja se antes tinha 0 e incrementamos -30 temos o valor de -30, na próxima execução se temos -30 e incrementamos mais -30, vamos para -60 e assim por diante. isto fará nosso elemento voltar.              
+      document.getElementById("P1Image").style.transform = "rotate("+rotate+"deg)"; //Acessamos o elemento img e através do style.transform atribuimos o rotate com o valor atual de nossa variável.
+    });        
+});
