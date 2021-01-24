@@ -33,7 +33,7 @@
 
   // Imagem usada no personagem
   var img = new Image();
-  img.src = "images/LuanG.png";
+  img.src = "images/tatu/tatu1.png";
   img.id = "P1Image";
 
   /* Objeto personagem
