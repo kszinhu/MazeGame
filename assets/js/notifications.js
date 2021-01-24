@@ -10,9 +10,9 @@ function newPopup(id) {
     if (id === 1) {
         // ID para rotação (cima/baixo)
         let Window = window.open(
-            '../rotate.html',
+            './rotate.html',
             'pagina',
-            "width=350, height=255, top=100, left=110, scrollbars=no ");
+            "width=350, height=255, top=100, left=110, scrollbars=no");
     }
 
 }
