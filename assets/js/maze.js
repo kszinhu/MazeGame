@@ -9,7 +9,7 @@
   // Controle do comprimento/altura do canvas
   var WIDTH = canvas.width,
     HEIGHT = canvas.height,
-    bigPlayer = false;
+    smallPlayer = false;
 
   // Keys do Teclado
   var LEFT = 37,
@@ -162,40 +162,36 @@
     switch (key) {
       case LEFT:
         whatPage(0);
-        if(bigPlayer) {
+        if (smallPlayer) {
           img.src = "./images/tatu/tatu_small.png";
-        }
-        else {
+        } else {
           img.src = "./images/tatu/tatu_esquerda.png";
         }
         mvLeft = true;
         break;
       case UP:
         whatPage(1);
-        if(bigPlayer) {
+        if (smallPlayer) {
           img.src = "./images/tatu/tatu_small.png";
-        }
-        else {
+        } else {
           img.src = "./images/tatu/tatu_cima.png";
         }
         mvUp = true;
         break;
       case RIGHT:
         whatPage(0);
-        if(bigPlayer) {
+        if (smallPlayer) {
           img.src = "./images/tatu/tatu_small.png";
-        }
-        else {
+        } else {
           img.src = "./images/tatu/tatu1.png";
         }
         mvRight = true;
         break;
       case DOWN:
         whatPage(1);
-        if(bigPlayer) {
+        if (smallPlayer) {
           img.src = "./images/tatu/tatu_small.png";
-        }
-        else {
+        } else {
           img.src = "./images/tatu/tatu_baixo.png";
         }
         mvDown = true;
@@ -203,7 +199,7 @@
       case SPACE:
         whatPage(2);
         img.src = "./images/tatu/tatu_small.png";
-        bigPlayer = true;
+        smallPlayer = true;
         break;
     }
   }
@@ -226,7 +222,7 @@
         break;
       case SPACE:
         img.src = "./images/tatu/tatu1.png";
-        bigPlayer = false;
+        smallPlayer = false;
         break;
     }
   }
@@ -244,7 +240,7 @@
       player.y += player.speed;
     }
     //Controle de tamanho do player
-    if (bigPlayer) {
+    if (smallPlayer) {
       player.width = size * 0.5;
       player.height = size * 0.5;
     } else {
